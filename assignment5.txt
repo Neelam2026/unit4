@@ -1,0 +1,1567 @@
+> db
+test
+> show dbs
+admin         0.000GB
+assignment    0.000GB
+config        0.000GB
+databaseName  0.000GB
+local         0.000GB
+> use databaseName
+switched to db databaseName
+> show collections
+movies
+students
+users
+> db.movies.find().count() 
+500
+
+> db.movies.find({movie_name: {$eq: "The Stone Council"}}).pretty()
+{
+        "_id" : ObjectId("622909555fe310f4fd18ad8b"),
+        "id" : 3,
+        "movie_name" : "The Stone Council",
+        "movie_genre " : "Adventure|Crime|Drama|Fantasy|Mystery|Thriller",
+        "production_year" : 2008,
+        "budget" : 11415.90
+}
+
+
+> db.movies.find({movie_name: {$ne: "The Stone Council"}}).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af7f"),
+        "id" : 1,
+        "movie_name" : "Cherry Crush",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2018,
+        "budget" : 9188
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        " movie_genre" : "Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        " movie_genre" : "Comedy|Documentary",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        " movie_genre" : "Comedy",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        " movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        " movie_genre" : "Comedy|Crime",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af87"),
+        "id" : 9,
+        "movie_name" : "Vampires",
+        " movie_genre" : "Horror|Western",
+        "production_year" : 1990,
+        "budget" : 16548
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af89"),
+        "id" : 11,
+        "movie_name" : "Jackass 3D",
+        " movie_genre" : "Action|Comedy|Documentary",
+        "production_year" : 1992,
+        "budget" : 19641
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8d"),
+        "id" : 15,
+        "movie_name" : "Witch's Night Out",
+        " movie_genre" : "Animation|Children",
+        "production_year" : 2011,
+        "budget" : 9602
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8e"),
+        "id" : 16,
+        "movie_name" : "Blood of Redemption",
+        " movie_genre" : "Action|Crime|Drama|Thriller",
+        "production_year" : 2006,
+        "budget" : 10583
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8f"),
+        "id" : 17,
+        "movie_name" : "Diplomatic Siege",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 1994,
+        "budget" : 10261
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af90"),
+        "id" : 18,
+        "movie_name" : "Hawks and Sparrows (Uccellacci e Uccellini)",
+        " movie_genre" : "Comedy",
+        "production_year" : 2009,
+        "budget" : 9376
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af91"),
+        "id" : 19,
+        "movie_name" : "Let No Man Write My Epitaph",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14462
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af92"),
+        "id" : 20,
+        "movie_name" : "Nothing's All Bad",
+        " movie_genre" : "Drama",
+        "production_year" : 2000,
+        "budget" : 9712
+}
+
+
+
+>  db.movies.find({$and:[{"budget": {$gt:10000}},{"budget": {$gte:15000}}]}).pretty()      
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        " movie_genre" : "Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        " movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af87"),
+        "id" : 9,
+        "movie_name" : "Vampires",
+        " movie_genre" : "Horror|Western",
+        "production_year" : 1990,
+        "budget" : 16548
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af89"),
+        "id" : 11,
+        "movie_name" : "Jackass 3D",
+        " movie_genre" : "Action|Comedy|Documentary",
+        "production_year" : 1992,
+        "budget" : 19641
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af94"),
+        "id" : 22,
+        "movie_name" : "Lethal Weapon 3",
+        " movie_genre" : "Action|Comedy|Crime|Drama",
+        "production_year" : 2012,
+        "budget" : 18119
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af97"),
+        "id" : 25,
+        "movie_name" : "War of the Worlds",
+        " movie_genre" : "Action|Sci-Fi",
+        "production_year" : 2013,
+        "budget" : 17368
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af99"),
+        "id" : 27,
+        "movie_name" : "Beyond the Gates of Splendor",
+        " movie_genre" : "Documentary",
+        "production_year" : 2003,
+        "budget" : 15982
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9a"),
+        "id" : 28,
+        "movie_name" : "Lila & Eve",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2008,
+        "budget" : 19751
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9b"),
+        "id" : 29,
+        "movie_name" : "Emergo (Apartment 143)",
+        " movie_genre" : "Horror",
+        "production_year" : 2015,
+        "budget" : 19211
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9c"),
+        "id" : 30,
+        "movie_name" : "Four Brothers",
+        " movie_genre" : "Action|Crime|Drama",
+        "production_year" : 2000,
+        "budget" : 15660
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9d"),
+        "id" : 31,
+        "movie_name" : "Arsène Lupin",
+        " movie_genre" : "Mystery|Romance",
+        "production_year" : 1998,
+        "budget" : 16657
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9f"),
+        "id" : 33,
+        "movie_name" : "Margaret Cho: Assassin",
+        " movie_genre" : "Comedy",
+        "production_year" : 2007,
+        "budget" : 16335
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa0"),
+        "id" : 34,
+        "movie_name" : "Ned Kelly",
+        " movie_genre" : "Drama",
+        "production_year" : 2017,
+        "budget" : 15976
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa1"),
+        "id" : 35,
+        "movie_name" : "Cop in Drag",
+        " movie_genre" : "Comedy|Crime|Drama",
+        "production_year" : 1997,
+        "budget" : 16773
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa2"),
+        "id" : 36,
+        "movie_name" : "Contracted",
+        " movie_genre" : "Drama|Horror|Thriller",
+        "production_year" : 2003,
+        "budget" : 17971
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa3"),
+        "id" : 37,
+        "movie_name" : "Loss of Sexual Innocence, The",
+        " movie_genre" : "Drama|Fantasy",
+        "production_year" : 1992,
+        "budget" : 19760
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa4"),
+        "id" : 38,
+        "movie_name" : "Top of the Food Chain (a.k.a. Invasion!)",
+        " movie_genre" : "Comedy|Horror|Sci-Fi",
+        "production_year" : 2008,
+        "budget" : 16814
+}
+
+
+
+
+> db.movies.find({$and:[{"budget": {$lt:16000}},{"budget": {$lte:15000}}]}).pretty()      
+{
+        "_id" : ObjectId("622916105fe310f4fd18af7f"),
+        "id" : 1,
+        "movie_name" : "Cherry Crush",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2018,
+        "budget" : 9188
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        " movie_genre" : "Comedy|Documentary",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        " movie_genre" : "Comedy",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        " movie_genre" : "Comedy|Crime",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8d"),
+        "id" : 15,
+        "movie_name" : "Witch's Night Out",
+        " movie_genre" : "Animation|Children",
+        "production_year" : 2011,
+        "budget" : 9602
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8e"),
+        "id" : 16,
+        "movie_name" : "Blood of Redemption",
+        " movie_genre" : "Action|Crime|Drama|Thriller",
+        "production_year" : 2006,
+        "budget" : 10583
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8f"),
+        "id" : 17,
+        "movie_name" : "Diplomatic Siege",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 1994,
+        "budget" : 10261
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af90"),
+        "id" : 18,
+        "movie_name" : "Hawks and Sparrows (Uccellacci e Uccellini)",
+        " movie_genre" : "Comedy",
+        "production_year" : 2009,
+        "budget" : 9376
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af91"),
+        "id" : 19,
+        "movie_name" : "Let No Man Write My Epitaph",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14462
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af92"),
+        "id" : 20,
+        "movie_name" : "Nothing's All Bad",
+        " movie_genre" : "Drama",
+        "production_year" : 2000,
+        "budget" : 9712
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af93"),
+        "id" : 21,
+        "movie_name" : "Loss of a Teardrop Diamond, The",
+        " movie_genre" : "Drama",
+        "production_year" : 1991,
+        "budget" : 12986
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af95"),
+        "id" : 23,
+        "movie_name" : "Matrix, The",
+        " movie_genre" : "Action|Sci-Fi|Thriller",
+        "production_year" : 1999,
+        "budget" : 11385
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af96"),
+        "id" : 24,
+        "movie_name" : "What We Do in the Shadows",
+        " movie_genre" : "Comedy|Horror",
+        "production_year" : 2020,
+        "budget" : 13564
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af98"),
+        "id" : 26,
+        "movie_name" : "The great match",
+        " movie_genre" : "Comedy",
+        "production_year" : 2014,
+        "budget" : 9069
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9e"),
+        "id" : 32,
+        "movie_name" : "Dillinger Is Dead (Dillinger è morto)",
+        " movie_genre" : "Crime|Drama",
+        "production_year" : 2013,
+        "budget" : 13276
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa6"),
+        "id" : 40,
+        "movie_name" : "Day the Sun Turned Cold, The (Tianguo niezi)",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 13353
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afa8"),
+        "id" : 42,
+        "movie_name" : "Story of Ruth, The",
+        " movie_genre" : "Drama",
+        "production_year" : 1990,
+        "budget" : 13667
+}
+
+>  db.movies.find({$and:[{production_year: {$gt:2000}},{budget: {$gt:10000}}]}).pretty()   
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        " movie_genre" : "Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        " movie_genre" : "Comedy|Documentary",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        " movie_genre" : "Comedy",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        " movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        " movie_genre" : "Comedy|Crime",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8e"),
+        "id" : 16,
+        "movie_name" : "Blood of Redemption",
+        " movie_genre" : "Action|Crime|Drama|Thriller",
+        "production_year" : 2006,
+        "budget" : 10583
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af91"),
+        "id" : 19,
+        "movie_name" : "Let No Man Write My Epitaph",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14462
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af94"),
+        "id" : 22,
+        "movie_name" : "Lethal Weapon 3",
+        " movie_genre" : "Action|Comedy|Crime|Drama",
+        "production_year" : 2012,
+        "budget" : 18119
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af96"),
+        "id" : 24,
+        "movie_name" : "What We Do in the Shadows",
+        " movie_genre" : "Comedy|Horror",
+        "production_year" : 2020,
+        "budget" : 13564
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af97"),
+        "id" : 25,
+        "movie_name" : "War of the Worlds",
+        " movie_genre" : "Action|Sci-Fi",
+        "production_year" : 2013,
+        "budget" : 17368
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af99"),
+        "id" : 27,
+        "movie_name" : "Beyond the Gates of Splendor",
+        " movie_genre" : "Documentary",
+        "production_year" : 2003,
+        "budget" : 15982
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9a"),
+        "id" : 28,
+        "movie_name" : "Lila & Eve",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2008,
+        "budget" : 19751
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9b"),
+        "id" : 29,
+        "movie_name" : "Emergo (Apartment 143)",
+        " movie_genre" : "Horror",
+        "production_year" : 2015,
+        "budget" : 19211
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9e"),
+        "id" : 32,
+        "movie_name" : "Dillinger Is Dead (Dillinger è morto)",
+        " movie_genre" : "Crime|Drama",
+        "production_year" : 2013,
+        "budget" : 13276
+}
+
+
+>  db.movies.find({$or:[{production_year: {$gt:2000}},{budget: {$gt:10000}}]}).pretty()    
+{
+        "_id" : ObjectId("622916105fe310f4fd18af7f"),
+        "id" : 1,
+        "movie_name" : "Cherry Crush",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2018,
+        "budget" : 9188
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        " movie_genre" : "Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        " movie_genre" : "Comedy|Documentary",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        " movie_genre" : "Comedy",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        " movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        " movie_genre" : "Comedy|Crime",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af87"),
+        "id" : 9,
+        "movie_name" : "Vampires",
+        " movie_genre" : "Horror|Western",
+        "production_year" : 1990,
+        "budget" : 16548
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af89"),
+        "id" : 11,
+        "movie_name" : "Jackass 3D",
+        " movie_genre" : "Action|Comedy|Documentary",
+        "production_year" : 1992,
+        "budget" : 19641
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8d"),
+        "id" : 15,
+        "movie_name" : "Witch's Night Out",
+        " movie_genre" : "Animation|Children",
+        "production_year" : 2011,
+        "budget" : 9602
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8e"),
+        "id" : 16,
+        "movie_name" : "Blood of Redemption",
+        " movie_genre" : "Action|Crime|Drama|Thriller",
+        "production_year" : 2006,
+        "budget" : 10583
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8f"),
+        "id" : 17,
+        "movie_name" : "Diplomatic Siege",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 1994,
+        "budget" : 10261
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af90"),
+        "id" : 18,
+        "movie_name" : "Hawks and Sparrows (Uccellacci e Uccellini)",
+        " movie_genre" : "Comedy",
+        "production_year" : 2009,
+        "budget" : 9376
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af91"),
+        "id" : 19,
+        "movie_name" : "Let No Man Write My Epitaph",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14462
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af93"),
+        "id" : 21,
+        "movie_name" : "Loss of a Teardrop Diamond, The",
+        " movie_genre" : "Drama",
+        "production_year" : 1991,
+        "budget" : 12986
+}
+
+
+> db.movies.find({$nor:[{production_year: {$gt:2000}},{budget: {$gt:10000}}]}).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af92"),
+        "id" : 20,
+        "movie_name" : "Nothing's All Bad",
+        " movie_genre" : "Drama",
+        "production_year" : 2000,
+        "budget" : 9712
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afd1"),
+        "id" : 83,
+        "movie_name" : "Nosferatu the Vampyre (Nosferatu: Phantom der Nacht)",
+        " movie_genre" : "Horror",
+        "production_year" : 1990,
+        "budget" : 9939
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b024"),
+        "id" : 166,
+        "movie_name" : "Gladiator",
+        " movie_genre" : "Action|Adventure|Drama",
+        "production_year" : 1993,
+        "budget" : 9927
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b04e"),
+        "id" : 208,
+        "movie_name" : "Blue Steel",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 1993,
+        "budget" : 9997
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b091"),
+        "id" : 275,
+        "movie_name" : "Hercules and the Lost Kingdom",
+        " movie_genre" : "Action|Adventure|Fantasy|Sci-Fi",
+        "production_year" : 1993,
+        "budget" : 9113
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b095"),
+        "id" : 279,
+        "movie_name" : "Chinese Puzzle (Casse-tête chinois)",
+        " movie_genre" : "Comedy|Romance",
+        "production_year" : 1993,
+        "budget" : 9680
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0a8"),
+        "id" : 298,
+        "movie_name" : "Louis Theroux: The Most Hated Family in America in Crisis",
+        " movie_genre" : "Documentary",
+        "production_year" : 1998,
+        "budget" : 9603
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0af"),
+        "id" : 305,
+        "movie_name" : "Yuki & Nina",
+        " movie_genre" : "Drama",
+        "production_year" : 1997,
+        "budget" : 9599
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0b8"),
+        "id" : 314,
+        "movie_name" : "Hallelujah I'm a Bum",
+        " movie_genre" : "Musical",
+        "production_year" : 1997,
+        "budget" : 9180
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0c7"),
+        "id" : 329,
+        "movie_name" : "Eyes of the Mothman",
+        " movie_genre" : "Documentary",
+        "production_year" : 1990,
+        "budget" : 9180
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b120"),
+        "id" : 418,
+        "movie_name" : "Texas Chainsaw Massacre 2, The",
+        " movie_genre" : "Horror",
+        "production_year" : 2000,
+        "budget" : 9373
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b153"),
+        "id" : 469,
+        "movie_name" : "Volcano High (Whasango)",
+        " movie_genre" : "Action|Comedy",
+        "production_year" : 1993,
+        "budget" : 9638
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b157"),
+        "id" : 473,
+        "movie_name" : "Man Who Knew Too Much, The",
+        " movie_genre" : "Adventure|Drama|Mystery|Thriller",
+        "production_year" : 1993,
+        "budget" : 9564
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b16f"),
+        "id" : 497,
+        "movie_name" : "Wish You Were Here",
+        " movie_genre" : "Drama|Mystery",
+        "production_year" : 1990,
+        "budget" : 9671
+}
+
+
+
+> db.movies.find({$nor:[{production_year: {$eq:2000}},{budget: {$eq:10000}}]}).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af7f"),
+        "id" : 1,
+        "movie_name" : "Cherry Crush",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2018,
+        "budget" : 9188
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        " movie_genre" : "Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        " movie_genre" : "Comedy|Documentary",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        " movie_genre" : "Comedy",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        " movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        " movie_genre" : "Comedy|Crime",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af87"),
+        "id" : 9,
+        "movie_name" : "Vampires",
+        " movie_genre" : "Horror|Western",
+        "production_year" : 1990,
+        "budget" : 16548
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af89"),
+        "id" : 11,
+        "movie_name" : "Jackass 3D",
+        " movie_genre" : "Action|Comedy|Documentary",
+        "production_year" : 1992,
+        "budget" : 19641
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8d"),
+        "id" : 15,
+        "movie_name" : "Witch's Night Out",
+        " movie_genre" : "Animation|Children",
+        "production_year" : 2011,
+        "budget" : 9602
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8e"),
+        "id" : 16,
+        "movie_name" : "Blood of Redemption",
+        " movie_genre" : "Action|Crime|Drama|Thriller",
+        "production_year" : 2006,
+        "budget" : 10583
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8f"),
+        "id" : 17,
+        "movie_name" : "Diplomatic Siege",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 1994,
+        "budget" : 10261
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af90"),
+        "id" : 18,
+        "movie_name" : "Hawks and Sparrows (Uccellacci e Uccellini)",
+        " movie_genre" : "Comedy",
+        "production_year" : 2009,
+        "budget" : 9376
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af91"),
+        "id" : 19,
+        "movie_name" : "Let No Man Write My Epitaph",
+        " movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14462
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af93"),
+        "id" : 21,
+        "movie_name" : "Loss of a Teardrop Diamond, The",
+        " movie_genre" : "Drama",
+        "production_year" : 1991,
+        "budget" : 12986
+}
+
+
+
+> db.movies.find({production_year: {$in: [2000,2010]}}).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        " movie_genre" : "Action|Crime",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        " movie_genre" : "Animation",
+        "production_year" : 2010,
+        "budget" : 10801
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af92"),
+        "id" : 20,
+        "movie_name" : "Nothing's All Bad",
+        " movie_genre" : "Drama",
+        "production_year" : 2000,
+        "budget" : 9712
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af9c"),
+        "id" : 30,
+        "movie_name" : "Four Brothers",
+        " movie_genre" : "Action|Crime|Drama",
+        "production_year" : 2000,
+        "budget" : 15660
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afb5"),
+        "id" : 55,
+        "movie_name" : "Full Body Massage",
+        " movie_genre" : "Drama",
+        "production_year" : 2010,
+        "budget" : 15359
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afd2"),
+        "id" : 84,
+        "movie_name" : "Ambassador, The (Ambassadøren)",
+        " movie_genre" : "Documentary",
+        "production_year" : 2000,
+        "budget" : 11144
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afd5"),
+        "id" : 87,
+        "movie_name" : "Young Lieutenant, The (Le petit lieutenant)",
+        " movie_genre" : "Crime|Drama",
+        "production_year" : 2010,
+        "budget" : 13786
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afe2"),
+        "id" : 100,
+        "movie_name" : "Beethoven's 5th",
+        " movie_genre" : "Adventure|Children|Comedy",
+        "production_year" : 2010,
+        "budget" : 19452
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b000"),
+        "id" : 130,
+        "movie_name" : "Incident at Oglala",
+        " movie_genre" : "Documentary",
+        "production_year" : 2010,
+        "budget" : 19248
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b001"),
+        "id" : 131,
+        "movie_name" : "Closet, The (Placard, Le)",
+        " movie_genre" : "Comedy",
+        "production_year" : 2000,
+        "budget" : 14354
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b01e"),
+        "id" : 160,
+        "movie_name" : "Sahara",
+        " movie_genre" : "Adventure|Drama|Romance",
+        "production_year" : 2000,
+        "budget" : 19835
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b036"),
+        "id" : 184,
+        "movie_name" : "Body of Evidence",
+        " movie_genre" : "Drama|Thriller",
+        "production_year" : 2000,
+        "budget" : 14988
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b039"),
+        "id" : 187,
+        "movie_name" : "Jezebel",
+        " movie_genre" : "Drama",
+        "production_year" : 2010,
+        "budget" : 17882
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b043"),
+        "id" : 197,
+        "movie_name" : "What's Cooking?",
+        " movie_genre" : "Drama",
+        "production_year" : 2010,
+        "budget" : 9380
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b04f"),
+        "id" : 209,
+        "movie_name" : "Tea For Two",
+        " movie_genre" : "Comedy|Musical|Romance",
+        "production_year" : 2010,
+        "budget" : 9573
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b05c"),
+        "id" : 222,
+        "movie_name" : "Last Tycoon, The",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2010,
+        "budget" : 12410
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b064"),
+        "id" : 230,
+        "movie_name" : "That's Life!",
+        " movie_genre" : "Drama",
+        "production_year" : 2000,
+        "budget" : 17007
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b065"),
+        "id" : 231,
+        "movie_name" : "Air Crew",
+        " movie_genre" : "Action|Drama|Thriller",
+        "production_year" : 2010,
+        "budget" : 14103
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b06c"),
+        "id" : 238,
+        "movie_name" : "Ménage (Tenue de soirée)",
+        " movie_genre" : "Comedy|Drama",
+        "production_year" : 2010,
+        "budget" : 12368
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b084"),
+        "id" : 262,
+        "movie_name" : "Violeta Went to Heaven (Violeta se fue a los cielos)",
+        " movie_genre" : "Drama",
+        "production_year" : 2010,
+        "budget" : 14464
+}
+
+
+> db.movies.find({}).sort({production_year:-1,movie_name:1}).pretty()    
+{
+        "_id" : ObjectId("622916105fe310f4fd18afdc"),
+        "id" : 94,
+        "movie_name" : "Aya of Yop City",
+        " movie_genre" : "Animation|Comedy",
+        "production_year" : 2020,
+        "budget" : 15233
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0d4"),
+        "id" : 342,
+        "movie_name" : "Bubba Ho-tep",
+        " movie_genre" : "Comedy|Horror",
+        "production_year" : 2020,
+        "budget" : 15164
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0fd"),
+        "id" : 383,
+        "movie_name" : "Chunhyang",
+        " movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 2020,
+        "budget" : 19846
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b0d1"),
+        "id" : 339,
+        "movie_name" : "Criminal",
+        " movie_genre" : "Comedy|Drama",
+        "production_year" : 2020,
+        "budget" : 11166
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b002"),
+        "id" : 132,
+        "movie_name" : "Delivery, The",
+        " movie_genre" : "Action|Adventure|Horror|Thriller",
+        "production_year" : 2020,
+        "budget" : 12867
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18aff1"),
+        "id" : 115,
+        "movie_name" : "Girl from the Naked Eye, The",
+        " movie_genre" : "Action|Romance|Thriller",
+        "production_year" : 2020,
+        "budget" : 12159
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b072"),
+        "id" : 244,
+        "movie_name" : "Hideous Kinky",
+        " movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 12134
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18aff0"),
+        "id" : 114,
+        "movie_name" : "It's a Bikini World",
+        " movie_genre" : "Comedy",
+        "production_year" : 2020,
+        "budget" : 14695
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b15d"),
+        "id" : 479,
+        "movie_name" : "Kiki's Delivery Service (Majo no takkyûbin)",
+        " movie_genre" : "Adventure|Animation|Children|Drama|Fantasy",
+        "production_year" : 2020,
+        "budget" : 10127
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afce"),
+        "id" : 80,
+        "movie_name" : "Letter from Siberia",
+        " movie_genre" : "(no genres listed)",
+        "production_year" : 2020,
+        "budget" : 12934
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b146"),
+        "id" : 456,
+        "movie_name" : "Ping Pong",
+        " movie_genre" : "Documentary",
+        "production_year" : 2020,
+        "budget" : 11861
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b042"),
+        "id" : 196,
+        "movie_name" : "Princess Protection Program",
+        " movie_genre" : "Children|Drama",
+        "production_year" : 2020,
+        "budget" : 11096
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b05e"),
+        "id" : 224,
+        "movie_name" : "Sterile Cuckoo, The",
+        " movie_genre" : "Comedy|Drama",
+        "production_year" : 2020,
+        "budget" : 15183
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b02f"),
+        "id" : 177,
+        "movie_name" : "Student Prince in Old Heidelberg, The",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2020,
+        "budget" : 13494
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b01a"),
+        "id" : 156,
+        "movie_name" : "Switch",
+        " movie_genre" : "Comedy|Crime|Fantasy",
+        "production_year" : 2020,
+        "budget" : 16822
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18afaf"),
+        "id" : 49,
+        "movie_name" : "Symphonie pastorale, La",
+        " movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 19461
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af96"),
+        "id" : 24,
+        "movie_name" : "What We Do in the Shadows",
+        " movie_genre" : "Comedy|Horror",
+        "production_year" : 2020,
+        "budget" : 13564
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b155"),
+        "id" : 471,
+        "movie_name" : "Who Is Killing the Great Chefs of Europe?",
+        " movie_genre" : "Comedy|Crime|Mystery",
+        "production_year" : 2020,
+        "budget" : 14395
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b05f"),
+        "id" : 225,
+        "movie_name" : "World Unseen, The",
+        " movie_genre" : "Drama|Romance",
+        "production_year" : 2020,
+        "budget" : 12440
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18b141"),
+        "id" : 451,
+        "movie_name" : "Adelheid",
+        " movie_genre" : "Drama",
+        "production_year" : 2019,
+        "budget" : 11349
+}
+
+
+
+> db.movies.find({}).skip(10).limit(5).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af89"),
+        "id" : 11,
+        "movie_name" : "Jackass 3D",
+        " movie_genre" : "Action|Comedy|Documentary",
+        "production_year" : 1992,
+        "budget" : 19641
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8a"),
+        "id" : 12,
+        "movie_name" : "Train of Shadows (Tren de sombras)",
+        " movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 14249
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8b"),
+        "id" : 13,
+        "movie_name" : "Death of a Salesman",
+        " movie_genre" : "Drama",
+        "production_year" : 2016,
+        "budget" : 18038
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8c"),
+        "id" : 14,
+        "movie_name" : "Glimmer Man, The",
+        " movie_genre" : "Action|Thriller",
+        "production_year" : 2012,
+        "budget" : 12749
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af8d"),
+        "id" : 15,
+        "movie_name" : "Witch's Night Out",
+        " movie_genre" : "Animation|Children",
+        "production_year" : 2011,
+        "budget" : 9602
+}
+
+
+
+> db.movies.find({},{id:1,movie_name:1,production_year:1,budget:1}).limit(10).pretty()
+{
+        "_id" : ObjectId("622916105fe310f4fd18af7f"),
+        "id" : 1,
+        "movie_name" : "Cherry Crush",
+        "production_year" : 2018,
+        "budget" : 9188
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af80"),
+        "id" : 2,
+        "movie_name" : "Way... Way Out",
+        "production_year" : 2001,
+        "budget" : 17193
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af81"),
+        "id" : 3,
+        "movie_name" : "Dobermann",
+        "production_year" : 2010,
+        "budget" : 15578
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af82"),
+        "id" : 4,
+        "movie_name" : "Cinderella Liberty",
+        "production_year" : 2013,
+        "budget" : 15424
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af83"),
+        "id" : 5,
+        "movie_name" : "Richard Pryor Here and Now",
+        "production_year" : 2012,
+        "budget" : 10966
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af84"),
+        "id" : 6,
+        "movie_name" : "Roxie Hart",
+        "production_year" : 2001,
+        "budget" : 14506
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af85"),
+        "id" : 7,
+        "movie_name" : "Chant of Jimmy Blacksmith, The",
+        "production_year" : 2001,
+        "budget" : 17267
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af86"),
+        "id" : 8,
+        "movie_name" : "Wise Guys",
+        "production_year" : 2009,
+        "budget" : 13849
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af87"),
+        "id" : 9,
+        "movie_name" : "Vampires",
+        "production_year" : 1990,
+        "budget" : 16548
+}
+{
+        "_id" : ObjectId("622916105fe310f4fd18af88"),
+        "id" : 10,
+        "movie_name" : "Trick or Treat",
+        "production_year" : 2010,
+        "budget" : 10801
+}
