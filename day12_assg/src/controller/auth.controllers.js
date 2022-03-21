@@ -33,7 +33,13 @@ const register=async(req,res)=>{
 
 const login = async(req,res)=>{
     try{
-        const user = await User.findOne({email : req.body.email})
+        const errors = validationResult(req);
+      console.log({ errors });
+      if (!errors.isEmpty()) {
+        return res.status(400).send({ errors: errors.array() });
+      }
+
+     const user = await User.findOne({email : req.body.email})
         if(!user){
             return res.status(400).send("Wrong Email or Password")
         }
