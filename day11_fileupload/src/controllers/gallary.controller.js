@@ -1,40 +1,90 @@
 const express = require("express");
+const router = express.Router();
+const Gallary = require("../models/gallary.model");
+const upload = require("../middleware/upload");
+const fs = require('fs');
 
-const router=express.Router()
-const Gallary=require("../models/gallary.model")
-const upload=require("../middleware/upload")
-router.post("", upload.any("profile_pic",5), async (req, res) => {
-    try {
-      const filePaths = req.files.map((file) => {
-        return file.path;
+router.get("", async (req, res) => {
+  try {
+    const gallary = await Gallary.find()
+      .populate({
+        path: "user_id",
+      })
+      .lean()
+      .exec();
+
+    return res.status(200).send(gallary);
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+router.post("/:user_id", upload.any("profile_pic", 5), async (req, res) => {
+  try {
+    const filePaths = req.files.map((file) => {
+      return file.path;
+    });
+
+    const gallary = await Gallary.create({
+      profile_pic: filePaths,
+      user_id: req.params.user_id,
+    });
+
+    return res.status(200).send(gallary);
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+//not working properly
+
+router.patch("/:user_id", upload.any("profile_pic", 5), async (req, res) => {
+  try {
+    const filePaths = req.files.map((file) => {
+      return file.path;
+    });
+
+    let data = {
+      profile_pic: filePaths,
+      user_id: req.params.user_id,
+    };
+    let gallary = await Gallary.findById(req.params.user_id);
+    let file = gallary.profile_pic;
+
+    for (let i in file) {
+      fs.unlink(file[i], (err) => {
+        if (err) throw err;
+        console.log("path/file.txt was deleted");
       });
-      if(findById({__id:req.body.userid})){
-        const gallery= await Gallery.findByIdAndUpdate({__id:req.body.userid},{set:{profile_pic:req.file.path}})
-          }
-          else{
-            const gallery = await Gallery.create({
-              first_name:req.body.first_name,
-              last_name:req.body.last_name,
-              profile_pic: filePaths,
-            });
-          }
-     
-  
-      return res.status(200).send(gallery);
-    } catch (err) {
-      return res.status(500).send({ message: err.message });
     }
-  });
+    let gly = await Gallary.findByIdAndUpdate(req.params.user_id, data, {
+      new: true,
+    });
+    return res.status(200).send(gly);
+  } catch (error) {
+    return res.status(500).send({ mesage: error.message });
+  }
+});
 
+router.delete("/:id", async (req, res) => {
+  try {
+    let gallary = await Gallary.findById(req.params.id);
 
-  router.get("", async (req, res) => {
-    try {
-      const gallery = await Gallery.find().lean().exec();
-  
-      return res.status(200).send(gallery);
-    } catch (err) {
-      return res.status(500).send({ message: err.message });
+    let images = gallary.profile_pic;
+    console.log(images);
+    for (let i in images) {
+      console.log("pagal", i);
+      console.log("pagal oart", images[i]);
+      fs.unlink(images[i], (err) => {
+        if (err) throw err;
+        console.log("path/file.txt was deleted");
+      });
     }
-  });
+    await Gallary.findByIdAndDelete(req.params.id);
+    return res.status(200).send(gallary);
+  } catch (error) {
+    return res.status(500).send({ message: error.mesage });
+  }
+});
 
-  module.exports = router;
+module.exports = router;
