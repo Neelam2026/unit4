@@ -1,7 +1,7 @@
 const express= require("express")
 const app= express();
 
-const productController=require("./controller/product.controller")
+const todosController=require("./controller/product.controller")
 app.use(express.json())
-app.use("/products",productController)
+app.use("/todos", todosController);
 module.exports=app;
