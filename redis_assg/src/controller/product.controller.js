@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const client = require("../config/redis");
-const Product = require("../model/product.model");
+const Todo = require("../model/product.model");
 
 router.post("", async (req, res) => {
   try {
-    const product = await Product.create(req.body);
+    const todo = await Todo.create(req.body);
 
-    const products = await Product.find().lean().exec();
+    const todos = await Todo.find().lean().exec();
 
-    client.set("products", JSON.stringify(products));
+    client.set("todos", JSON.stringify(todos));
 
-    return res.status(201).send(products);
+    return res.status(201).send(todo);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -19,69 +19,73 @@ router.post("", async (req, res) => {
 
 router.get("", async (req, res) => {
   try {
-      //pagination
-    // const page = req.query.page || 1;
-    // const pagesize = req.query.pagesize || 10;
-    // const skip = (page - 1) * pagesize;
-    //
-    client.get("products", async function (err, fetchedproduct) {
-      if (fetchedproduct) {
-        const products = JSON.parse(fetchedproduct);
-        return res.status(200).send({ products, redis: true }); //returning from redis therefore redis:true
+    // pagination
+    const page = +req.query.page || 1;
+    const size = +req.query.size || 10;
+    const skip = (page - 1) * size;
+    
+    client.get(`todos.${page}.${size}`, async function (err, fetchedTodos) {
+      if (fetchedTodos) {
+        const todos = JSON.parse(fetchedTodos);
+
+        return res.status(200).send({ todos, redis: true });
       } else {
         try {
-          const products = await Product.find()
-          //.skip(skip).limit(pagesize)
-          .lean().exec();
-          client.set("products", JSON.stringify(products));
-          return res.status(200).send({ todos, redis: false }); //returning from  database therefore  redis:false
+          const todos = await Todo.find()
+           .skip(skip).limit(size)
+           .lean().exec();
+
+          client.set("todos", JSON.stringify(todos));
+
+          return res.status(200).send({ todos, redis: false });
         } catch (err) {
           return res.status(500).send({ message: err.message });
         }
       }
     });
   } catch (err) {
-    return res.status(500).send({ message: err.messgae });
+    return res.status(500).send({ message: err.message });
   }
 });
 
 router.get("/:id", async (req, res) => {
   try {
-    client.get(
-      `products.${req.params.id}`,
-      async function (err, fetchedproduct) {
-        if (fetchedproduct) {
-          const products = JSON.parse(fetchedproduct);
-          return res.status(200).send({ products, redis: true }); //returning from redis therefore redis:true
-        } else {
-          try {
-            const products = await Product.findById(req.params.id)
-              .lean()
-              .exec();
-            client.set(`products.${req.params.id}`, JSON.stringify(products));
-            return res.status(200).send({ todos, redis: false }); //returning from  database therefore  redis:false
-          } catch (err) {
-            return res.status(500).send({ message: err.message });
-          }
+    client.get(`todos.${req.params.id}`, async function (err, fetchedTodo) {
+      if (fetchedTodo) {
+        const todo = JSON.parse(fetchedTodo);
+
+        return res.status(200).send({ todo, redis: true });
+      } else {
+        try {
+          const todo = await Todo.findById(req.params.id).lean().exec();
+
+          client.set(`todos.${req.params.id}`, JSON.stringify(todo));
+
+          return res.status(200).send({ todo, redis: false });
+        } catch (err) {
+          return res.status(500).send({ message: err.message });
         }
       }
-    );
+    });
   } catch (err) {
-    return res.status(500).send({ message: err.messgae });
+    return res.status(500).send({ message: err.message });
   }
 });
 
 router.patch("/:id", async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     })
       .lean()
       .exec();
-    const products = await Product.find().lean().exec();
-    client.set(`products.${req.params.id}`, JSON.stringify(product));
-    client.set("products", JSON.stringify(products));
-    return res.status(200).send(product);
+
+    const todos = await Todo.find().lean().exec();
+
+    client.set(`todos.${req.params.id}`, JSON.stringify(todo));
+    client.set("todos", JSON.stringify(todos));
+
+    return res.status(200).send(todo);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -89,12 +93,14 @@ router.patch("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete(req.params.id)
-      .lean()
-      .exec();
-    const products = await Product.find().lean().exec();
-    client.del(`products.${req.params.id}`);
-    client.set("products", JSON.stringify(products));
+    const todo = await Todo.findByIdAndDelete(req.params.id).lean().exec();
+
+    const todos = await Todo.find().lean().exec();
+
+    client.del(`todos.${req.params.id}`);
+    client.set("todos", JSON.stringify(todos));
+
+    return res.status(200).send(todo);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }

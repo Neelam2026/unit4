@@ -6,7 +6,7 @@ app.listen(5060,async(req,res)=>{
        await connect();
     }
     catch(err){
-        console.log(err)
+        console.log("Error connecting" + err)
     }
     console.log("listening on port 5060")
 
